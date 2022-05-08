@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Canlendar</string>
+    <string name="day_of_week.sunday">일</string>
+    <string name="day_of_week.monday">월</string>
+    <string name="day_of_week.tuesday">화</string>
+    <string name="day_of_week.wednesday">수</string>
+    <string name="day_of_week.thursday">목</string>
+    <string name="day_of_week.friday">금</string>
+    <string name="day_of_week.saturday">토</string>
+    <string name="common.confirm">확인</string>
+    <string name="common.close">닫기</string>
+    <string name="common.clear">지우기</string>
+</resources>

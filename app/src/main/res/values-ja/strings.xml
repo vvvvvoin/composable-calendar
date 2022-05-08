@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Canlendar</string>
+    <string name="day_of_week.sunday">日</string>
+    <string name="day_of_week.monday">月</string>
+    <string name="day_of_week.tuesday">火</string>
+    <string name="day_of_week.wednesday">水</string>
+    <string name="day_of_week.thursday">木</string>
+    <string name="day_of_week.friday">金</string>
+    <string name="day_of_week.saturday">土</string>
+    <string name="common.confirm">確認</string>
+    <string name="common.close">閉じる</string>
+    <string name="common.clear">削除</string>
+</resources>
