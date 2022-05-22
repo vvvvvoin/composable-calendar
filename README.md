@@ -1,4 +1,4 @@
-# composable-canlendar
+# composable-calendar
 
 it is calendar component composed of jackpack compose.
 this is still only basic.
