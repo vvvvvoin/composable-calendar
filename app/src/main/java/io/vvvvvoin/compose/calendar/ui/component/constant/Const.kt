@@ -1,4 +1,4 @@
-package io.vvvvvoin.compose.calendar.ui.component
+package io.vvvvvoin.compose.calendar.ui.component.constant
 
 internal const val REPEAT_DAY_OF_WEEK = 7
 internal const val LAST_DAY_OF_WEEK_INDEX = 6
