@@ -4,40 +4,41 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import io.vvvvvoin.compose.calendar.ui.theme.bg_transparent
 
 @Composable
 internal fun DividerDp(
-        size: Double,
+        size: Dp,
 ) {
     Divider(
             modifier = Modifier
-                    .size(size.dp),
+                    .size(size),
             color = bg_transparent,
     )
 }
 
 @Composable
 internal fun DividerHeightDp(
-        height: Double,
+        height: Dp,
 ) {
     Divider(
             modifier = Modifier
                     .fillMaxWidth()
-                    .height(height.dp),
+                    .height(height),
             color = bg_transparent,
     )
 }
 
 @Composable
 internal fun DividerWidthDp(
-        width: Double,
+        width: Dp,
 ) {
     Divider(
             modifier = Modifier
                     .fillMaxHeight()
-                    .width(width.dp),
+                    .width(width),
             color = bg_transparent,
     )
 }

@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
 import io.vvvvvoin.compose.calendar.R
+import io.vvvvvoin.compose.calendar.ui.component.layout.Layout
 import io.vvvvvoin.compose.calendar.ui.theme.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -93,7 +94,7 @@ internal fun CalendarFrame(
                         }
                     },
             )
-            DividerHeightDp(height = 8.0)
+            DividerHeightDp(height = 8.0.dp)
 
 
             /*day of week*/
@@ -104,7 +105,7 @@ internal fun CalendarFrame(
                             textColor = dayOfWeekColor,
                     )
                     if (it != DayOfWeek.SATURDAY) {
-                        DividerDp(size = 12.5)
+                        DividerDp(size = 12.5.dp)
                     }
                 }
             }
@@ -126,8 +127,9 @@ internal fun CalendarFrame(
 
 
             /*buttons*/
-            DividerHeightDp(height = 12.0)
-            BezierButton(
+            DividerHeightDp(height = 12.0.dp)
+            Button(
+                    layout = Layout.MATCH,
                     text = stringResource(id = R.string.common_confirm),
                     buttonTextColor = buttonTextColor,
                     buttonBackgroundColor = buttonBackgroundColor,
@@ -137,8 +139,9 @@ internal fun CalendarFrame(
                         )
                     },
             )
-            DividerHeightDp(height = 8.0)
-            BezierButton(
+            DividerHeightDp(height = 8.0.dp)
+            Button(
+                    layout = Layout.MATCH,
                     text = stringResource(id = R.string.common_clear),
                     buttonTextColor = buttonTextColor,
                     buttonBackgroundColor = buttonBackgroundColor,
@@ -215,7 +218,7 @@ private fun OneMonth(
 
     var flag = true
     while (flag) {
-        DividerHeightDp(height = 2.0)
+        DividerHeightDp(height = 2.0.dp)
 
         Row {
             repeat(REPEAT_DAY_OF_WEEK) { index ->
@@ -236,7 +239,7 @@ private fun OneMonth(
                 )
 
                 if (index != LAST_DAY_OF_WEEK_INDEX) {
-                    DividerDp(size = 12.5)
+                    DividerDp(size = 12.5.dp)
                 }
                 startDate = startDate.plusDays(1)
             }
