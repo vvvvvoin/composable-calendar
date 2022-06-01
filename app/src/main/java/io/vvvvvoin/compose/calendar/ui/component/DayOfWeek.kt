@@ -26,7 +26,7 @@ internal fun DayOfWeek(
             contentAlignment = Alignment.Center,
     ) {
         Text(
-                text = stringResource(id = dayOfWeek.kay),
+                text = stringResource(id = dayOfWeek.key),
                 fontSize = 16.sp,
                 color = textColor,
         )
@@ -34,7 +34,7 @@ internal fun DayOfWeek(
 }
 
 enum class DayOfWeek(
-        val kay: Int,
+        val key: Int,
 ) {
     SUNDAY(R.string.day_of_week_sunday),
     MONDAY(R.string.day_of_week_monday),
@@ -47,7 +47,7 @@ enum class DayOfWeek(
 
 @Preview
 @Composable
-fun PreviewDayOfWeekButton() {
+internal fun PreviewDayOfWeekButton() {
     DayOfWeek(
             dayOfWeek = DayOfWeek.FRIDAY,
             textColor = bg_white,

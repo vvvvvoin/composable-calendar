@@ -59,10 +59,10 @@ internal fun DayButton(
                 maxLines = 1,
         )
 
-       /*
-       * this compose make to not working any preview
-       * because [LocalDate.now()]
-       */
+        /*
+        * this compose make to not working any preview
+        * because [LocalDate.now()]
+        */
         /*today mark*/
 //        if(localDate.isEqual(LocalDate.now())) {
 //            Canvas(
@@ -80,26 +80,26 @@ internal fun DayButton(
 
 @Preview
 @Composable
-fun PreviewButton1() {
+internal fun PreviewButton1() {
     DayButton(
             selected = false,
             localDate = LocalDate.of(1995, 2, 8),
             defaultTextColor = text_darkest,
             defaultBackgroundColor = bg_transparent,
-            selectedBackgroundColor = bgt_mint_normal,
+            selectedBackgroundColor = bgt_aqua_normal,
             onClickButton = {},
     )
 }
 
 @Preview
 @Composable
-fun PreviewButton2() {
+internal fun PreviewButton2() {
     DayButton(
             selected = true,
             localDate = LocalDate.of(1995, 2, 8),
             defaultTextColor = text_darkest,
             defaultBackgroundColor = bg_transparent,
-            selectedBackgroundColor = bgt_mint_normal,
+            selectedBackgroundColor = bgt_aqua_normal,
             onClickButton = {},
     )
 }

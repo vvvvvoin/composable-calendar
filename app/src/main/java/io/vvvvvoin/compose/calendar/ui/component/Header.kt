@@ -1,8 +1,10 @@
 package io.vvvvvoin.compose.calendar.ui.component
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,7 +50,7 @@ internal fun Header(
 
             Text(
                     modifier = Modifier
-                            .weight(weight = 1f, ),
+                            .weight(weight = 1f),
                     text = "${date.format(formatter)} ${year}",
                     fontWeight = FontWeight.Bold,
                     fontSize = 18.sp,
@@ -67,13 +69,13 @@ internal fun Header(
 
 @Preview
 @Composable
-fun PreviewHeader() {
+internal fun PreviewHeader() {
     Header(
             year = 2022,
             month = 3,
             textColor = text_darkest,
             iconColor = text_dark,
-            backgroundColor = bgt_mint_normal,
+            backgroundColor = bgt_aqua_normal,
             onClickLeftButton = {},
             onClickRightButton = {},
     )

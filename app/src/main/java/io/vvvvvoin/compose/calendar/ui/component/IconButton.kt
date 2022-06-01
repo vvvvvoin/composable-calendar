@@ -50,7 +50,7 @@ internal fun IconButton(
 
 @Preview
 @Composable
-fun PreviewIconButton() {
+internal fun PreviewIconButton() {
     IconButton(
             drawableRes = R.drawable.ic_icon_left_arrow,
             onClickIconButton = {},

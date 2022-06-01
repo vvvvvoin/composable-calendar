@@ -129,7 +129,7 @@ internal enum class ButtonSize(
 
 @Preview
 @Composable
-fun PreviewButtonIcon() {
+internal fun PreviewButtonIcon() {
     Button(
             layout = Layout.WRAP,
             size = ButtonSize.XS,
@@ -142,7 +142,7 @@ fun PreviewButtonIcon() {
 
 @Preview
 @Composable
-fun PreviewButtonXS() {
+internal fun PreviewButtonXS() {
     Button(
             size = ButtonSize.XS,
             text = "Bezier Button XS",
@@ -156,7 +156,7 @@ fun PreviewButtonXS() {
 
 @Preview
 @Composable
-fun PreviewButtonS() {
+internal fun PreviewButtonS() {
     Button(
             size = ButtonSize.S,
             text = "Bezier Button S",
@@ -170,7 +170,7 @@ fun PreviewButtonS() {
 
 @Preview
 @Composable
-fun PreviewButtonM() {
+internal fun PreviewButtonM() {
     Button(
             size = ButtonSize.M,
             text = "Bezier Button M",
@@ -184,7 +184,7 @@ fun PreviewButtonM() {
 
 @Preview
 @Composable
-fun PreviewButtonL() {
+internal fun PreviewButtonL() {
     Button(
             size = ButtonSize.L,
             text = "Bezier Button L",
@@ -198,7 +198,7 @@ fun PreviewButtonL() {
 
 @Preview
 @Composable
-fun PreviewButtonXL() {
+internal fun PreviewButtonXL() {
     Button(
             size = ButtonSize.XL,
             text = "Bezier Button XL",
