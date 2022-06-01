@@ -1,7 +1,6 @@
 package io.vvvvvoin.compose.calendar.ui.component
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -64,17 +63,17 @@ internal fun DayButton(
         * because [LocalDate.now()]
         */
         /*today mark*/
-//        if(localDate.isEqual(LocalDate.now())) {
-//            Canvas(
-//                    modifier = Modifier
-//                            .padding(top = 2.dp)
-//                            .size(4.dp)
-//            ) {
-//                drawCircle(
-//                        color = icon_darkest,
-//                )
-//            }
-//        }
+        if(localDate.isEqual(LocalDate.now())) {
+            Canvas(
+                    modifier = Modifier
+                            .padding(top = 2.dp)
+                            .size(4.dp)
+            ) {
+                drawCircle(
+                        color = selectedBackgroundColor,
+                )
+            }
+        }
     }
 }
 
