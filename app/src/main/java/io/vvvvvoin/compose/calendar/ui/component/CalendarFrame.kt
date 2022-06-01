@@ -13,10 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
 import io.vvvvvoin.compose.calendar.R
-import io.vvvvvoin.compose.calendar.ui.component.constant.LAST_DAY_OF_WEEK_INDEX
-import io.vvvvvoin.compose.calendar.ui.component.constant.LIMITED_MONTH
-import io.vvvvvoin.compose.calendar.ui.component.constant.LIMITED_MONTH_HALF
-import io.vvvvvoin.compose.calendar.ui.component.constant.REPEAT_DAY_OF_WEEK
+import io.vvvvvoin.compose.calendar.ui.component.constant.*
 import io.vvvvvoin.compose.calendar.ui.component.layout.Layout
 import io.vvvvvoin.compose.calendar.ui.theme.*
 import kotlinx.coroutines.CoroutineScope
@@ -28,9 +25,7 @@ import org.threeten.bp.temporal.ChronoField
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 internal fun CalendarFrame(
-        initYear: Int,
-        initMonth: Int,
-        initDay: Int,
+        initDate: LocalDate,
         chosenDate: LocalDate? = null,
         headerTextColor: Color = text_darkest,
         headerIconColor: Color = icon_darkest,
@@ -47,7 +42,6 @@ internal fun CalendarFrame(
         onClickConfirm: (String?) -> Unit,
         onClickClear: () -> Unit,
 ) {
-    val initLocalDate = LocalDate.of(initYear, initMonth, initDay)
     var selectedDate: LocalDate? by remember { mutableStateOf(null) }
 
     if (chosenDate != null) {
@@ -60,25 +54,20 @@ internal fun CalendarFrame(
             infiniteLoop = false,
     )
 
-    val nowLocalDate = if (LIMITED_MONTH_HALF >= pagerState.currentPage) {
-        initLocalDate.minusMonths((LIMITED_MONTH_HALF - pagerState.currentPage).toLong())
-    } else {
-        initLocalDate.plusMonths((pagerState.currentPage - LIMITED_MONTH_HALF).toLong())
-    }
-
     Card(
             modifier = Modifier.wrapContentWidth(),
             backgroundColor = bg_white,
-            shape = RoundedCornerShape(12.dp),
-            border = BorderStroke(
-                    width = 1.dp,
-                    color = border_dark,
-            ),
     ) {
         Column(
                 modifier = Modifier.padding(8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+
+            val nowLocalDate = if (LIMITED_MONTH_HALF >= pagerState.currentPage) {
+                initDate.minusMonths((LIMITED_MONTH_HALF - pagerState.currentPage).toLong())
+            } else {
+                initDate.plusMonths((pagerState.currentPage - LIMITED_MONTH_HALF).toLong())
+            }
 
             /*header*/
             Header(
@@ -116,7 +105,7 @@ internal fun CalendarFrame(
 
             /*day*/
             PagerCalendar(
-                    initLocalDate = initLocalDate,
+                    initLocalDate = initDate,
                     chosenDate = selectedDate,
                     primaryColor = dayPrimaryColor,
                     secondaryColor = daySecondaryColor,
@@ -257,11 +246,10 @@ private fun OneMonth(
 
 @Preview
 @Composable
-fun PreviewCalendarFrame() {
+internal fun PreviewCalendarFrame() {
     CalendarFrame(
-            initYear = 2022,
-            initMonth = 1,
-            initDay = 31,
+            initDate = LocalDate.of(2022, 1, 31),
+            chosenDate = LocalDate.of(2022, 1, 1),
             onClickConfirm = {},
             onClickClear = {},
             headerBackgroundColor = bgt_blue_darker,
