@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Canlendar</string>
+    <string name="day_of_week.sunday">Sun</string>
+    <string name="day_of_week.monday">Mon</string>
+    <string name="day_of_week.tuesday">Tue</string>
+    <string name="day_of_week.wednesday">Wed</string>
+    <string name="day_of_week.thursday">Thu</string>
+    <string name="day_of_week.friday">Fri</string>
+    <string name="day_of_week.saturday">Sat</string>
+    <string name="common.confirm">Confirm</string>
+    <string name="common.close">Close</string>
+    <string name="common.clear">Clear</string>
+</resources>
