@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Canlendar"
 include ':app'
+include ':lib'
