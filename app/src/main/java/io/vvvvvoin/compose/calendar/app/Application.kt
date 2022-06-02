@@ -1,4 +1,4 @@
-package io.vvvvvoin.compose.calendar
+package io.vvvvvoin.compose.calendar.app
 
 import android.app.Application
 import com.jakewharton.threetenabp.AndroidThreeTen
