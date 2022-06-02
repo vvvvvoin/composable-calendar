@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
             Column(modifier = Modifier.verticalScroll(scrollState)) {
                 Calendar(
                         initYear = 2022,
-                        initMonth = 5,
-                        initDay = 7,
+                        initMonth = 6,
+                        initDay = 2,
                         onClickConfirm = {
                             Log.e("compose Test", "value = ${it}")
                         },
