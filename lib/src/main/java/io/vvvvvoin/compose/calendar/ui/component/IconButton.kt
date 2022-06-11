@@ -35,7 +35,7 @@ internal fun IconButton(
                     .clickable(
                             onClick = { onClickIconButton.invoke() },
                             interactionSource = MutableInteractionSource(),
-                            indication = rememberRipple(bounded = true),
+                            indication = rememberRipple(),
                     ),
             contentAlignment = Alignment.Center,
     ) {

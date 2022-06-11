@@ -46,7 +46,7 @@ internal fun DayButton(
                                 onClickButton.invoke(localDate)
                             },
                             interactionSource = MutableInteractionSource(),
-                            indication = rememberRipple(bounded = true),
+                            indication = rememberRipple(),
                     ),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
