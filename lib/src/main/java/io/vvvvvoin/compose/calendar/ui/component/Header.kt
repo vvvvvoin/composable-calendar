@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,8 +30,10 @@ internal fun Header(
         onClickLeftButton: () -> Unit,
         onClickRightButton: () -> Unit,
 ) {
-    val date = LocalDate.of(year, month, 1)
-    val formatter = DateTimeFormatter.ofPattern("LLLL")
+    val date = remember(year, month) {
+        LocalDate.of(year, month, 1)
+    }
+    val formatter = remember { DateTimeFormatter.ofPattern("LLLL") }
 
     Card(
             shape = RoundedCornerShape(12.dp),
