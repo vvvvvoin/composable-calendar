@@ -1,9 +1,17 @@
 version: 2.1
 
-jobs:
-  build:
+orbs:
+  android: circleci/android@2.1.0
+
+executors:
+  test_executor:
     docker:
       - image: cimg/android:2022.06
+    resource_class: large
+
+jobs:
+  android_unit_test:
+    executor: test_executor
     steps:
       - checkout
       - restore_cache:
@@ -16,3 +24,22 @@ jobs:
             - ~/.gradle
           key: dependencies-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run: ./gradlew lint test
+
+  android_ui_test:
+    executor:
+      # Image Tags
+      # 2022.04.1,2022.03.1, 2022.01.1, 2021.12.1, 2021.10.1, 202102-01
+      # https://circleci.com/developer/machine/image/android
+      name: android/android-machine
+      resource-class: large
+      tag: 2022.04.1
+    steps:
+      - checkout
+      - android/start-emulator-and-run-tests:
+          system-image: system-images;android-31;default;x86
+
+workflows:
+  test:
+    jobs:
+      - android_unit_test
+      - android_ui_test
