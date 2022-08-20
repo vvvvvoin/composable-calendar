@@ -1,8 +1,6 @@
 package io.vvvvvoin.compose.calendar.ui.component
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -38,10 +36,10 @@ internal fun CalendarFrame(
         daySelectedBackgroundColor: Color = bgt_blue_normal,
         buttonTextColor: Color = bg_white,
         buttonBackgroundColor: Color = bgt_blue_normal,
-        coroutineScope: CoroutineScope = rememberCoroutineScope(),
         onClickConfirm: (String?) -> Unit,
         onClickClear: () -> Unit,
 ) {
+    val coroutineScope: CoroutineScope = rememberCoroutineScope()
     var selectedDate: LocalDate? by remember { mutableStateOf(null) }
 
     if (chosenDate != null) {
