@@ -3,7 +3,14 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
+
 android {
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
     compileSdk 31
 
     defaultConfig {
@@ -60,3 +67,6 @@ dependencies {
 
     implementation "com.google.accompanist:accompanist-pager:0.16.0"
 }
+
+apply from: '../lib/publish.gradle'
+apply from: "${rootDir}/lib/script/publish-maven.gradle"
