@@ -242,7 +242,9 @@ data class CalendarCustomColor(
         val buttonBackgroundColor: Color = bgt_blue_normal,
 )
 
-enum class CalendarTheme(val primaryColor: Color) {
+enum class CalendarTheme(
+        val primaryColor: Color,
+) {
     RED(bgt_red_normal),
     ORANGE(bgt_orange_normal),
     YELLOW(bgt_yellow_normal),

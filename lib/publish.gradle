@@ -1,0 +1,18 @@
+ext {
+    PUBLISH_GROUP_ID = 'io.github.vvvvvoin'
+    PUBLISH_VERSION = '0.0.1-alpha'
+    PUBLISH_ARTIFACT_ID = 'composable-calendar'
+    PUBLISH_DESCRIPTION = 'Android compose canlendar'
+    PUBLISH_URL = 'https://github.com/vvvvvoin/composable-calendar'
+    PUBLISH_LICENSE_NAME = ''
+    PUBLISH_LICENSE_URL = ''
+    PUBLISH_DEVELOPER_ID = 'vvvvvoin'
+    PUBLISH_DEVELOPER_NAME = 'vvvvvoin'
+    PUBLISH_DEVELOPER_EMAIL = 'aszx7009@gmail.com'
+    PUBLISH_SCM_CONNECTION =
+            'scm:git:github.com/vvvvvoin/composable-calendar.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION =
+            'scm:git:ssh://github.com/vvvvvoin/composable-calendar.git'
+    PUBLISH_SCM_URL =
+            'https://github.com/vvvvvoin/composable-calendar/tree/master'
+}
