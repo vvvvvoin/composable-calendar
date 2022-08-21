@@ -1,6 +1,6 @@
 ext {
     PUBLISH_GROUP_ID = 'io.github.vvvvvoin'
-    PUBLISH_VERSION = '0.0.1-alpha'
+    PUBLISH_VERSION = '0.0.2-alpha'
     PUBLISH_ARTIFACT_ID = 'composable-calendar'
     PUBLISH_DESCRIPTION = 'Android compose canlendar'
     PUBLISH_URL = 'https://github.com/vvvvvoin/composable-calendar'
