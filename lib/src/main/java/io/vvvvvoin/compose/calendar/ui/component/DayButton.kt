@@ -27,7 +27,7 @@ internal fun DayButton(
         selectedBackgroundColor: Color,
 ) {
 
-    Column(
+    Box(
             modifier = Modifier
                     .size(36.dp)
                     .clip(
@@ -48,25 +48,21 @@ internal fun DayButton(
                             interactionSource = MutableInteractionSource(),
                             indication = rememberRipple(),
                     ),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
     ) {
         Text(
+                modifier = Modifier.align(Alignment.Center),
                 text = localDate.dayOfMonth.toString(),
                 fontSize = 16.sp,
                 color = defaultTextColor,
                 maxLines = 1,
         )
 
-        /*
-        * this compose make to not working any preview
-        * because [LocalDate.now()]
-        */
         /*today mark*/
-        if(localDate.isEqual(LocalDate.now())) {
+        if (localDate.isEqual(LocalDate.now())) {
             Canvas(
                     modifier = Modifier
-                            .padding(top = 2.dp)
+                            .align(Alignment.BottomCenter)
+                            .padding(bottom = 2.dp)
                             .size(4.dp)
             ) {
                 drawCircle(
