@@ -16,9 +16,9 @@ import io.vvvvvoin.compose.calendar.ui.component.layout.Layout
 import io.vvvvvoin.compose.calendar.ui.theme.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import org.threeten.bp.LocalDate
-import org.threeten.bp.format.DateTimeFormatter
-import org.threeten.bp.temporal.ChronoField
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoField
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
