@@ -3,7 +3,7 @@ package io.vvvvvoin.compose.calendar.ui.component
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import io.vvvvvoin.compose.calendar.ui.theme.*
-import org.threeten.bp.LocalDate
+import java.time.LocalDate
 
 // default
 @Composable

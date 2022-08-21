@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.vvvvvoin.compose.calendar.R
 import io.vvvvvoin.compose.calendar.ui.theme.*
-import org.threeten.bp.LocalDate
-import org.threeten.bp.format.DateTimeFormatter
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 @Composable
 internal fun Header(
