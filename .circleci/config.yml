@@ -20,7 +20,7 @@ gradle_key: &gradle_key
 executors:
     fastlane_executor:
       docker:
-        - image: fastlanetools/fastlane:latest
+        - image: fastlanetools/ci:latest
       resource_class: large
 
 jobs:
