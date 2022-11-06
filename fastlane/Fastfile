@@ -35,9 +35,10 @@ lane :deploy_exp_to_firebase_app_distribution do |options|
 
   firebase_app_distribution(
     app: "1:20715453286:android:b532b7ed9dadc460f2a6a7",
-    firebase_cli_token: "1//0e6GOPCwezo1FCgYIARAAGA4SNwF-L9IrNE31oE3iYw9uxW8gXoGOLSZh3S4DxTnUi1nJ0lYY_8RM5VwxbOjJpf38Apwvpz95Xn4"
-    testers: "andy@channel.io, vvvvvoin@channel.io, aszx7009@gmail.com",
+    firebase_cli_token: "1//0e6GOPCwezo1FCgYIARAAGA4SNwF-L9IrNE31oE3iYw9uxW8gXoGOLSZh3S4DxTnUi1nJ0lYY_8RM5VwxbOjJpf38Apwvpz95Xn4",
+    testers: "andy@channel.io, vvvvvoin@channel.io, aszx7009@gmail.com"
   )
+end
 
 
 # play-console 에 production 배포하기
