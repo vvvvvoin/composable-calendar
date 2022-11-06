@@ -1,4 +1,9 @@
 
+desc "fastlane 동작 테스트용"
+lane:test_for_test do |options|
+    sh("echo test")
+end
+
 desc "린트 테스트"
 lane :lint_test do |options|
   gradle(
