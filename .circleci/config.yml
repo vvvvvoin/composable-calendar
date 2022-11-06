@@ -52,9 +52,9 @@ jobs:
       - checkout
       - restore_cache:
           key: *gradle_key
-      - run:
-          name: Download Dependcies
-          command: ./gradlew androidDependencies
+#      - run:
+#          name: Download Dependcies
+#          command: ./gradlew androidDependencies
       - save_cache:
           paths:
             - ~/.gradle
