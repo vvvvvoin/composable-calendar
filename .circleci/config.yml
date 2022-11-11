@@ -1,9 +1,15 @@
 version: 2.1
 
+executors:
+  fastlane_executor:
+    docker:
+      - image: cimg/android:2022.09
+    resource_class: large
+
+# android test 에 필요함
 orbs:
   android: circleci/android@2.1.2
-
-# 키 관련 context 추가해야함
+  ruby: circleci/ruby@1.2.0
 
 references:
   exp: &exp
@@ -16,12 +22,6 @@ references:
 
 gradle_key: &gradle_key
               jars-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
-
-executors:
-    fastlane_executor:
-      docker:
-        - image: fastlanetools/fastlane:latest
-      resource_class: large
 
 jobs:
   android_lint_test:
@@ -37,6 +37,7 @@ jobs:
           paths:
             - ~/.gradle
           key: *gradle_key
+      - ruby/install-deps
       - run:
           name: execute unit test lane
           command: fastlane check_test build_flavor:$BUILD_FLAVOR build_type:$BUILD_TYPE
@@ -52,13 +53,14 @@ jobs:
       - checkout
       - restore_cache:
           key: *gradle_key
-#      - run:
-#          name: Download Dependcies
-#          command: ./gradlew androidDependencies
+      - run:
+          name: Download Dependcies
+          command: ./gradlew androidDependencies
       - save_cache:
           paths:
             - ~/.gradle
           key: *gradle_key
+      - ruby/install-deps
       - run:
           name: execute unit test lane
           # TODO : fix build variant
