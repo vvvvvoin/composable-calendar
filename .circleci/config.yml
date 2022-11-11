@@ -67,7 +67,7 @@ jobs:
       - run:
           name: execute unit test lane
           # TODO : fix build variant
-          command: fastlane unit_test build_flavor:exp build_type:${}
+          command: fastlane unit_test
       - store_artifacts:
           path: app/build/reports
           destination: reports
