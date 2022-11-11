@@ -60,6 +60,9 @@ jobs:
           paths:
             - ~/.gradle
           key: *gradle_key
+      - ruby/install:
+        version: '2.7'
+      - run: echo "Ruby 2.7 has been installed"
       - ruby/install-deps
       - run:
           name: execute unit test lane
