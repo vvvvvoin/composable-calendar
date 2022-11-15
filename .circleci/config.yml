@@ -107,6 +107,10 @@ jobs:
           command: |
             curl -sL firebase.tools | bash
       - run:
+          name: "Add plugin"
+          command: |
+           bundle exec fastlane add_plugin firebase_app_distribution
+      - run:
           name: Decode Android key store
           command: echo $BASE64_KEYSTORE | base64 -d | tee keystore app/keystore > /dev/null
       - run:
