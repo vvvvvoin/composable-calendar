@@ -35,7 +35,7 @@ platform :android do
 
     gradle(
       task: 'assemble',
-      build_type: 'debug'
+      build_type: 'debug',
       properties: {
                 "android.injected.signing.store.file" => :options[$key_store],
                 "android.injected.signing.store.password" => :options[$key_store_password],
