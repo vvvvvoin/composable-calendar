@@ -108,7 +108,7 @@ jobs:
             curl -sL firebase.tools | bash
       - run:
           name: Decode Android key store
-          command: echo $BASE64_KEYSTORE | base64 -d | tee keystore android/app/keystore > /dev/null
+          command: echo $BASE64_KEYSTORE | base64 -d | tee keystore app/keystore > /dev/null
       - run:
           name: "Deploy alpha build to Firebase"
           command: |
