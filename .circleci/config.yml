@@ -99,17 +99,10 @@ jobs:
           version: '2.7'
       - run: echo "Ruby 2.7 has been installed"
       - ruby/install-deps
-#      - run:
-#          name: configure build
-#          command: bundle update fastlane && gem install bundler && bundle install
       - run:
           name: "Install Firebase CLI"
           command: |
             curl -sL firebase.tools | bash
-      - run:
-          name: "Add plugin"
-          command: |
-           bundle exec fastlane add_plugin firebase_app_distribution
       - run:
           name: Decode Android key store
           command: echo $BASE64_KEYSTORE | base64 -d | tee keystore app/keystore > /dev/null
