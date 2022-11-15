@@ -117,4 +117,4 @@ jobs:
 workflows:
   local_test:
     jobs:
-      - android_unit_test:
+      - firebase_app_distribution
