@@ -35,17 +35,21 @@ platform :android do
 
     gradle(
       task: 'assemble',
-      build_type: 'exp'
+      build_type: 'debug'
+      properties: {
+                "android.injected.signing.store.file" => :options[$key_store],
+                "android.injected.signing.store.password" => :options[$key_store_password],
+                "android.injected.signing.key.alias" => :options[$key_alias],
+                "android.injected.signing.key.password" => :options[$key_password],
+            }
     )
 
     firebase_app_distribution(
-      app: "1:20715453286:android:b532b7ed9dadc460f2a6a7",
-      firebase_cli_token: "1//0e6GOPCwezo1FCgYIARAAGA4SNwF-L9IrNE31oE3iYw9uxW8gXoGOLSZh3S4DxTnUi1nJ0lYY_8RM5VwxbOjJpf38Apwvpz95Xn4",
+      app: options[:FIREBASE_APP_ID],
+      firebase_cli_token: options[:FIREBASE_CLI_TOKEN],
       testers: "andy@channel.io, vvvvvoin@channel.io, aszx7009@gmail.com"
     )
   end
-
-
 
 end
 
