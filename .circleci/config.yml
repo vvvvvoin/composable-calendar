@@ -112,7 +112,7 @@ jobs:
       - run:
           name: "Deploy alpha build to Firebase"
           command: |
-            bundle exec fastlane deploy_exp_to_firebase_app_distribution app_id:$FIREBASE_APP_ID firebase_token:$FIREBASE_CLI_TOKEN key_alias:$RELEASE_KEY_ALIAS key_password:$RELEASE_KEYSTORE key_store:$RELEASE_KEYSTORE key_store_password:$RELEASE_STORE_PASSWORD
+            bundle exec fastlane deploy_exp_to_firebase_app_distribution app_id:$FIREBASE_APP_ID firebase_token:$FIREBASE_CLI_TOKEN key_alias:$RELEASE_KEY_ALIAS key_password:$RELEASE_KEY_PASSWORD key_store:$RELEASE_KEYSTORE key_store_password:$RELEASE_STORE_PASSWORD
 
 workflows:
   local_test:
