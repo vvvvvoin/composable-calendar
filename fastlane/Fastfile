@@ -36,12 +36,18 @@ platform :android do
     gradle(
       task: 'assemble',
       build_type: 'debug',
-      properties: {
-                "android.injected.signing.store.file" => options[$key_store],
-                "android.injected.signing.store.password" => options[$key_store_password],
-                "android.injected.signing.key.alias" => options[$key_alias],
-                "android.injected.signing.key.password" => options[$key_password],
-            }
+#       properties: {
+#                 "android.injected.signing.store.file" => options[$key_store],
+#                 "android.injected.signing.store.password" => options[$key_store_password],
+#                 "android.injected.signing.key.alias" => options[$key_alias],
+#                 "android.injected.signing.key.password" => options[$key_password],
+#             }
+        properties: {
+                        "android.injected.signing.store.file" => ENV["RELEASE_KEYSTORE"],
+                        "android.injected.signing.store.password" => ENV["RELEASE_STORE_PASSWORD"],
+                        "android.injected.signing.key.alias" => ENV["RELEASE_KEY_ALIAS"],
+                        "android.injected.signing.key.password" => ENV["RELEASE_KEY_PASSWORD"]
+                    }
     )
 
     firebase_app_distribution(
