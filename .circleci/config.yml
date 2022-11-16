@@ -91,7 +91,7 @@ jobs:
       - android/start-emulator-and-run-tests:
           system-image: system-images;android-29;default;x86
 
-  firebase_app_distribution:
+  deploy_firebase_app_distribution:
     executor: fastlane_executor
     steps:
       - checkout
@@ -111,7 +111,26 @@ jobs:
           command: |
             bundle exec fastlane deploy_exp_to_firebase_app_distribution
 
+  deploy_play_console:
+    executor: fastlane_executor
+    steps:
+      - checkout
+      - ruby/install:
+          version: '2.7'
+      - run: echo "Ruby 2.7 has been installed"
+      - ruby/install-deps
+      - run:
+          name: Decode Android key store
+          command: echo $BASE64_KEYSTORE | base64 -d | tee keystore app/keystore > /dev/null
+      - run:
+          name: Create Google Play key
+          command: echo $GOOGLE_PLAY_KEY > google-play-key.json
+      - run:
+          name: "Deploy alpha version to Firebase"
+          command: |
+            bundle exec fastlane deploy_release_to_play_console
+
 workflows:
   local_test:
     jobs:
-      - firebase_app_distribution
+      - deploy_play_console

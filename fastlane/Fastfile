@@ -5,8 +5,8 @@ platform :android do
     setup_circle_ci
   end
 
-  desc "fastlane 동작 테스트용"
-  lane:test_for_test do |options|
+  desc "fastlane 동작 테스트"
+  lane :working_test do
     sh("echo test")
   end
 
@@ -28,21 +28,9 @@ platform :android do
     )
   end
 
-  # firebase app distribution 에 exp 배포하기
   desc "firebase app distribution 에 exp 배포하기"
-  lane :deploy_exp_to_firebase_app_distribution do |options|
-  # app id, token, group, branch 등 정보들 받을 수 있도록 하기
-
-    gradle(
-      task: 'assemble',
-      build_type: 'debug',
-       properties: {
-                        "android.injected.signing.store.file" => ENV["RELEASE_KEYSTORE"],
-                        "android.injected.signing.store.password" => ENV["RELEASE_STORE_PASSWORD"],
-                        "android.injected.signing.key.alias" => ENV["RELEASE_KEY_ALIAS"],
-                        "android.injected.signing.key.password" => ENV["RELEASE_KEY_PASSWORD"]
-                   }
-    )
+  lane :deploy_exp_to_firebase_app_distribution do
+    apk_or_abb_build(taskType: "assemble")
 
     firebase_app_distribution(
       app: ENV["FIREBASE_APP_ID"],
@@ -51,8 +39,29 @@ platform :android do
     )
   end
 
+  desc "play console 에 release 배포하기"
+  lane :deploy_release_to_play_console do
+    apk_or_abb_build(taskType: "assemble")
+
+    upload_to_play_store(
+      track: "production",
+      json_key_data: ENV["GOOGLE_PLAY_KEY"]
+    )
+  end
+
+  # taskType = apk : "assemble", abb : "bundle"
+  desc "APK or ABB Build"
+  lane :apk_or_abb_build do |options|
+    gradle(
+      task: options[:taskType],
+      build_type: 'release',
+      properties: {
+        "android.injected.signing.store.file" => ENV["RELEASE_KEYSTORE"],
+        "android.injected.signing.store.password" => ENV["RELEASE_STORE_PASSWORD"],
+        "android.injected.signing.key.alias" => ENV["RELEASE_KEY_ALIAS"],
+        "android.injected.signing.key.password" => ENV["RELEASE_KEY_PASSWORD"]
+      }
+    )
+  end
+
 end
-
-
-
-# play-console 에 production 배포하기
