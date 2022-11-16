@@ -45,6 +45,7 @@ platform :android do
 
     upload_to_play_store(
       track: "production",
+      package_name: "io.vvvvvoin.compose.calendar",
       json_key_data: ENV["GOOGLE_PLAY_KEY"]
     )
   end
