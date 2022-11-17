@@ -41,7 +41,7 @@ platform :android do
 
   desc "play console 에 release 배포하기"
   lane :deploy_release_to_play_console do
-    apk_or_abb_build(taskType: "assemble")
+    apk_or_abb_build(taskType: "bundle")
 
     upload_to_play_store(
       track: "production",
