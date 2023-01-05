@@ -8,12 +8,13 @@ android {
         release {
         }
     }
-    compileSdk 31
+    compileSdk 33
+    buildToolsVersion '33.0.1'
 
     defaultConfig {
         applicationId "io.vvvvvoin.compose.calendar"
         minSdk 26
-        targetSdk 31
+        targetSdk 33
         versionCode 25
         versionName "1.0.1"
 
