@@ -1,0 +1,68 @@
+default_platform(:android)
+
+platform :android do
+  before_all do
+    setup_circle_ci
+  end
+
+  desc "fastlane 동작 테스트"
+  lane :working_test do
+    sh("echo test")
+  end
+
+  desc "린트 테스트"
+  lane :lint_test do |options|
+    gradle(
+      task: "check",
+      flavor: options[:build_flavor],
+      build_type: options[:build_type]
+    )
+  end
+
+  desc "유닛 테스트"
+  lane :unit_test do |options|
+    gradle(
+      task: "test",
+      flavor: options[:build_flavor],
+      build_type: options[:build_type]
+    )
+  end
+
+  desc "firebase app distribution 에 exp 배포하기"
+  lane :deploy_exp_to_firebase_app_distribution do
+    apk_or_abb_build(taskType: "assemble")
+
+    firebase_app_distribution(
+      app: ENV["FIREBASE_APP_ID"],
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+      testers: "andy@channel.io, vvvvvoin@channel.io, aszx7009@gmail.com"
+    )
+  end
+
+  desc "play console 에 release 배포하기"
+  lane :deploy_release_to_play_console do
+    apk_or_abb_build(taskType: "bundle")
+
+    upload_to_play_store(
+      track: "production",
+      package_name: "io.vvvvvoin.compose.calendar",
+      json_key_data: ENV["GOOGLE_PLAY_KEY"]
+    )
+  end
+
+  # taskType = apk : "assemble", abb : "bundle"
+  desc "APK or ABB Build"
+  lane :apk_or_abb_build do |options|
+    gradle(
+      task: options[:taskType],
+      build_type: 'release',
+      properties: {
+        "android.injected.signing.store.file" => ENV["RELEASE_KEYSTORE"],
+        "android.injected.signing.store.password" => ENV["RELEASE_STORE_PASSWORD"],
+        "android.injected.signing.key.alias" => ENV["RELEASE_KEY_ALIAS"],
+        "android.injected.signing.key.password" => ENV["RELEASE_KEY_PASSWORD"]
+      }
+    )
+  end
+
+end

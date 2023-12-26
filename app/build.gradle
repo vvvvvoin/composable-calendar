@@ -8,14 +8,15 @@ android {
         release {
         }
     }
-    compileSdk 31
+    compileSdk 33
+    buildToolsVersion '33.0.1'
 
     defaultConfig {
         applicationId "io.vvvvvoin.compose.calendar"
         minSdk 26
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        targetSdk 33
+        versionCode 25
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -31,7 +32,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
+            //signingConfig signingConfigs.release
         }
     }
     compileOptions {
